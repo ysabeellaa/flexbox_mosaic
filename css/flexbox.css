@@ -1,0 +1,165 @@
+/* .cabecalhoPrincipal{ */
+    /*display: inline-block;  um ao lado do outro, pode usar o vertical-aling: middle (alinhar no centro verticalmente) => usar no cabecalhoPrincipal e cabecalhoPrincipal-nav; o espaço entre eles fica meio ruim de acertar */
+    /*display: inline;  não permite definir nem widht e nem height; */
+   /*  display: flex;  (flex-box) 
+    align-items: center; */
+
+/* .cabecalhoPrincipal-nav{
+    display: flex;
+    align-items: center;
+} */
+
+
+/* display: inline
+
+Colocando display: inline nos elementos permite eles se posicionarem um do lado do outro, o problema do display: inline é que os elementos não aceitam mais que seja modificada tanto a width quanto a height. Isso limita MUITO nossas possibilidades.
+
+display: inline-block
+
+O display: inline-block permite os elementos se posicionarem um do lado do outro porém, diferentemente do display: inline ele permite que os elementos tenham sua width e height modificadas. Por esse motivo o display: inline-block é muito mais interessante na maioria dos casos do que o display: inline.
+
+O problema de usar display: inline-block é espaçar os elementos entre si. Para fazer isso teríamos que colocar margins e fazer contas.
+
+float: left | right
+
+O float é mais complicado, ele empurra o elemento para um dos lados (left | right) e os elementos que estão embaixo sobem. Isso nem sempre é o que a gente quer. Além do mais o float não permite que usemos a propriedade vertical-align: middle para alinhar os elementos verticalmente. Ou seja, para contornar isso uma possibilidade seria ter que colocar margin-top ou bottom nos elementos e usar os temidos números mágicos!
+
+display: flex
+
+O display: flex veio com o intuito de facilitar nossa vida nesses aspectos de posicionamento. Ele permite os elementos ficarem um do lado do outro, permite espaçar os elementos de forma mais intuitiva e sem ter que fazer cálculos. Além disso ele também permite alinhar os elementos verticalmente de forma fácil. */
+
+.container_cabecalho{
+    display: flex;
+    align-items: center; /* alinhar verticalmente */
+    justify-content: space-between;/*  colocar o espaço entre os dois elementos da div */
+}
+
+.cabecalhoPrincipal-nav{
+    display: flex;
+}
+
+.rodapePrincipal-patrocinadores-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 75%;
+}
+
+.rodape_patrocinadores_flex{
+    display: flex;
+    justify-content: space-between;
+
+}
+.rodapePrincipal-contatoForm-fieldset{
+    display: flex; /* alinha o tamanho dos elementos */
+}
+
+.rodapePrincipal-navMap-list{
+    display: flex;
+    flex-direction: column; /* um de baixo do outro */
+    height: 260px;
+    flex-wrap: wrap; /* permite que quando acabar o tamamnho da div, seja possível outros elementos virem na outr coluna, quebra */
+}
+
+/* .conteudoPrincipal-cursos{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.conteudoPrincipal-cursos-link{
+    width: 20%;
+} */
+
+ /* Usando o display grid */
+.conteudoPrincipal-cursos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 1%;
+} 
+
+.videoSobre .container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.videoSobre-sobre{
+    text-align: center; /* centralizar texto */
+    align-items: center;
+    flex-grow: 1; /* crescer o tamanho que sobrou na página */
+}
+
+.videoSobre-button{
+    width: 100%;
+   
+}
+
+.videoSobre-video{
+  
+    flex-grow: 1;
+    flex-shrink: 2; /* diminuir mais que o outro, bom para responsividade, se for 0 não diminui nada */
+}
+.videoSobre-sobre-list{
+    flex-grow: 2; /* isso aqui não funcionou */
+}
+
+/* 
+outra forma de arruamr o botao: um em baixo do outro e do mesmo tamanho
+.videoSobre-sobre{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+
+} */
+
+
+@media (max-width: 767px) {
+    .cabecalhoPrincipal-nav{
+        flex-direction: column;
+    }
+
+    .container_cabecalho{
+        flex-direction: column;
+        justify-content: center;
+        /* tirar o aling itens, já que passou para columns */
+        align-items: initial;
+        text-align: center;
+    }
+
+    .conteudoPrincipal-cursos{
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+    }
+    .conteudoPrincipal-cursos-link{
+        width: 100%;
+    }    
+
+    .rodapePrincipal-navMap-list{
+            height: auto;
+        }
+
+  
+    .rodape_patrocinadores_flex{
+           flex-direction: column;
+           align-items: center;
+        }
+
+      .rodapePrincipal-patrocinadores-list{
+        margin:0;
+        width: 100%;
+      }
+
+      .cabecalhoPrincipal-nav-link-app{
+        order: -1; /* vai vi antes de todo mundo */
+      }
+
+      .videoSobre .container{
+        flex-direction: column;
+
+      }
+    .videoSobre-video{
+        margin: 0 auto;
+    }
+
+}

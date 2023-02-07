@@ -1,0 +1,5 @@
+-na parte do conteudoPrinciapl-cursos, eu fiz do meu jeito e deu certo já, o instrutor fez de uma maneira bem diferente... porém o meu espaçamento ficou ruim!
+
+- usei o display grid => legal
+
+- flex-grow no vantagens e video não funcionou (essa parte está desconfigurada, rodapé meio cagado) margem do botão errado, não está no centro
